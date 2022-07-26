@@ -1,0 +1,16 @@
+{
+  "name": "trello_workflow",
+  "version": "1.0.0",
+  "description": "trello integration with Google App Script",
+  "main": "main.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/google-apps-script": "^1.0.53",
+    "eslint": "^8.20.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
