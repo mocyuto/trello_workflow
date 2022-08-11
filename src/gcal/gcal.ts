@@ -4,7 +4,7 @@ const googleCalendarId = propCal.GOOGLE_CALENDAR_ID;
 function createEvent(event: GoogleCalendarEvent) {
   const calendar = CalendarApp.getCalendarById(googleCalendarId);
 
-  let calendarOption = {};
+  const calendarOption = {};
   if (event.description) {
     calendarOption['description'] = event.description;
   }

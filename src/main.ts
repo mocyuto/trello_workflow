@@ -42,6 +42,9 @@ function newEvent(title: string, description: string): GoogleCalendarEvent {
         date = value;
         break;
       case 'Duration':
+        if (value === '') {
+          break;
+        }
         [start, end] = value.split('-');
         break;
       default:
@@ -50,6 +53,9 @@ function newEvent(title: string, description: string): GoogleCalendarEvent {
     }
   }
   const d = new Date(`${date.trim()}T00:00:00${TIMEZONE}`);
+  if (start === '' || end === '') {
+    return new GoogleCalendarEvent(title, d, -1, -1, desc, true);
+  }
   const startHour = parseInt(start.trim(), 10);
   const endHour = parseInt(end.trim(), 10);
   return new GoogleCalendarEvent(title, d, startHour, endHour, desc);
@@ -58,4 +64,6 @@ function newEvent(title: string, description: string): GoogleCalendarEvent {
 function testNewEvent() {
   const event = newEvent('test', 'Date: 2020-08-01\nDuration: 9-12\ntest');
   Logger.log(event);
+  const event2 = newEvent('test', 'Date: 2020-08-01\nDuration:\ntest');
+  Logger.log(event2);
 }
